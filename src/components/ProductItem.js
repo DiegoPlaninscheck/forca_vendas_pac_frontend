@@ -1,13 +1,16 @@
 import React from 'react';
+import './ProductItem.css';
 
 export default function ProductItem({ product, onEdit, onDelete }) {
-    return (
-        <div className="flex justify-between items-center border p-2 rounded mb-2">
-            <span>{product.name} - {product.color} - {product.size}</span>
-            <div className="flex gap-2">
-                <button onClick={onEdit} className="bg-yellow-400 text-white px-3 py-1 rounded">Editar</button>
-                <button onClick={onDelete} className="bg-red-500 text-white px-3 py-1 rounded">Excluir</button>
-            </div>
-        </div>
-    );
+  return (
+    <div className="product-item">
+      <span className="product-info">
+        {product.id} - {product.name} - {product.color} - {product.size}
+      </span>
+      <div className="product-actions">
+        <button onClick={onEdit} className="btn edit-btn">Update</button>
+        <button onClick={onDelete} className="btn delete-btn">Delete</button>
+      </div>
+    </div>
+  );
 }
