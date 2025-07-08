@@ -76,6 +76,7 @@ A aplicação estará disponível no navegador em:
 - Um token JWT é obtido e armazenado para autenticar as requisições à API.
 
 **Autorização**
+
 -O front-end verifica as roles do usuário após o login.
 
 -Os botões e ações da interface são habilitados ou desabilitados com base nessas permissões.
