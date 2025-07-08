@@ -33,49 +33,51 @@ Antes de executar o front-end, certifique-se de ter:
 
 ---
 
-## ⚙️ Instalação
+## 1. ⚙️ Instalação
 
 Clone o repositório:
 
 ```bash
 git clone <url-do-repositório>
 cd <pasta-do-repositório>
+```
 
+**Instale as Dependências:**
 
-
-Instale as Dependências:
+```bash
 npm install
 # ou
 yarn install
+```
 
-Configure o Keycloak:
+---
 
-No arquivo de configuração do Keycloak (keycloak.json ou keycloak-config.js), insira as informações do seu servidor, como:
+## 2. Executando a Aplicação
 
-realm
+**Para iniciar o front-end, execute:**
 
-clientId
-
-url do servidor Keycloak
-
-▶️ Executando a Aplicação
-Para iniciar o front-end, execute:
+```bash
 npm start
 # ou
 yarn start
+```
 
 A aplicação estará disponível no navegador em:
 👉 http://localhost:3000
 
+---
 
-🔐 Funcionalidades de Autenticação e Autorização
-🔑 Autenticação
-O usuário deve fazer login via Keycloak para acessar o formulário
+## 3.Autenticação e Autorização
 
-Após o login, um token JWT é obtido e usado para autenticar as requisições à API
+**Autenticação**
 
-🔒 Autorização
-O front-end verifica as roles do usuário para habilitar ou desabilitar botões e ações
+- O usuário realiza login via Keycloak ao acessar o sistema.
 
-As permissões são validadas também na API, e o front-end reflete essas validações
-```
+- Um token JWT é obtido e armazenado para autenticar as requisições à API.
+
+**Autorização**
+-O front-end verifica as roles do usuário após o login.
+
+-Os botões e ações da interface são habilitados ou desabilitados com base nessas permissões.
+
+-A API também valida as roles no backend, e o front-end responde de forma coerente.
