@@ -77,8 +77,8 @@ A aplicação estará disponível no navegador em:
 
 **Autorização**
 
--O front-end verifica as roles do usuário após o login.
+- O front-end verifica as roles do usuário após o login.
 
--Os botões e ações da interface são habilitados ou desabilitados com base nessas permissões.
+- Os botões e ações da interface são habilitados ou desabilitados com base nessas permissões.
 
--A API também valida as roles no backend, e o front-end responde de forma coerente.
+- A API também valida as roles no backend, e o front-end responde de forma coerente.
