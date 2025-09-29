@@ -12,6 +12,7 @@
     "axios": "^1.10.0",
     "js-cookie": "^3.0.5",
     "keycloak-js": "^26.2.0",
+    "primereact": "^10.9.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-scripts": "^5.0.1",
