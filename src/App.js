@@ -1,4 +1,5 @@
 import './index.css';
+import { PrimeReactProvider, PrimeReactContext } from 'primereact/api';
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import Keycloak from 'keycloak-js';
