@@ -11,7 +11,7 @@ body {
 
 .app-container {
   display: flex;
-  padding: 40px 20px;
+  /* padding: 40px 20px; */
 }
 
 .card {

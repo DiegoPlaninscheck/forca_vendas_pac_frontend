@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import EditProductModal from "./components/EditProductModal";
 import ProductForm from "./components/ProductForm";
 import ProductItem from "./components/ProductItem";
-import SidebarComponent from './components/SidebarComponent';
+import SidebarComponent from './components/HomePage-User/SidebarComponent';
 
 import Cookies from 'js-cookie';
 import Keycloak from 'keycloak-js';
