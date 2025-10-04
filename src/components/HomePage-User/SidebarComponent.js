@@ -25,7 +25,7 @@ export default function SidebarFixed({ isAdmin = false }) {
     return (
         <div className="layout-container">
             <div className="layout-body">
-                {/* Sidebar vermelha */}
+                {/* Sidebar */}
                 <div className="sidebar">
                     <div className="sidebar-header">
                         <i className="pi pi-arrow-left"></i>
@@ -54,10 +54,12 @@ export default function SidebarFixed({ isAdmin = false }) {
                     </div>
                 </div>
 
-                {/* Conteúdo principal da página */}
+                {/* --- CONTEÚDO PRINCIPAL ATUALIZADO --- */}
                 <div className="content">
-                    <div className="logo-central">
-                        <span>RU®</span>
+                    {/* Novo logo "ROSA URBANA" inserido aqui */}
+                    <div className="logo-container">
+                        <span>ROSA</span>
+                        <span>URBANA</span>
                     </div>
                 </div>
             </div>

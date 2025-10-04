@@ -1,38 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 /* Estrutura geral do layout */
 .layout-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100vh;
     overflow: hidden;
-}
-
-.layout-header {
-    background-color: #2e2e30; /* Cinza-chumbo, mais sofisticado */
-    color: white;
-    padding: 0.5rem 1.5rem;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #444; /* Linha sutil de separação */
+    width: 100%;
 }
 
 .layout-body {
     display: flex;
-    flex-grow: 1; /* Ocupa o restante da altura */
+    flex-grow: 1;
 }
 
+/* Centraliza o conteúdo principal */
 .content {
-    align-items: center;
-    justify-content: center;
-}
+    display: flex;              /* PASSO 1: Ativa o modo "flexbox" para o container. */
+    justify-content: center;    /* PASSO 2: Centraliza o conteúdo na HORIZONTAL. */
+    align-items: center;        /* PASSO 3: Centraliza o conteúdo na VERTICAL. */
+    flex-grow: 1;               /* Faz a área ocupar todo o espaço disponível. */
+    background-color: #f4f4f4;  /* Define o fundo cinza claro. */
+  }
 
 /* --- Estilos da Sidebar --- */
 .sidebar {
     width: 320px;
-    background-color: #CA2134; /* Cor de fundo principal */
+    background-color: #CA2134;
     color: white;
     display: flex;
     flex-direction: column;
+    flex-shrink: 0; /* Impede que a sidebar encolha */
 }
 
 /* Cabeçalho da Sidebar (Sair) */
@@ -60,22 +58,27 @@
     align-items: center;
     padding: 1rem;
 }
-.logo-central{
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: red;
-    color: black;
+
+.logo-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.45rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    flex-direction: column;
+    text-align: center;
 }
+
+.logo-container span {
+    display: block;
+    font-family: 'Anton', sans-serif;
+    font-size: 8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #000000;
+    letter-spacing: -0.035em;
+    line-height: 1;
+}
+
 .profile-logo {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background-color: white;
     color: black;
@@ -96,35 +99,16 @@
     padding: 1rem;
 }
 
-/* Títulos dos grupos de menu (Cadastro, Pedidos) */
 .menu-group h4 {
     padding: 0.75rem 1rem;
-    background-color: rgba(42, 42, 46, 0.5); /* Cinza-chumbo translúcido */
+    background-color: rgba(42, 42, 46, 0.5);
     border-radius: 8px;
     margin-bottom: 0.5rem;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.9);
 }
 
-/* Estilo para os itens de menu (Clientes, Pedidos, etc.) */
-.custom-menu .p-menuitem-link {
-    color: white !important; 
-    background-color: rgba(42, 42, 46, 0.2) !important; /* Fundo cinza-chumbo sutil */
-    margin-bottom: 10px;
-    padding: 0.75rem 1rem;
-    border-radius: 6px;
-    border-left: 4px solid transparent; 
-    transition: all 0.3s ease;
-}
-
-/* EFEITO HOVER ATUALIZADO */
-.custom-menu .p-menuitem-link:hover {
-    background-color: white !important; /* NOVA COR SÓLIDA */
-    padding: 1.1rem;
-    border-left: 4px solid white;
-}
-
-/* Remove o padding padrão do componente Menu */
+/* Itens de menu do PrimeReact */
 .custom-menu.p-menu {
     padding: 0;
     border: none;
@@ -132,17 +116,28 @@
     width: 100%;
 }
 
+.custom-menu .p-menuitem-link {
+    color: white !important;
+    background-color: rgba(42, 42, 46, 0.2) !important;
+    margin-bottom: 10px;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+}
 
+.custom-menu .p-menuitem-link:hover {
+    background-color: white !important;
+    padding-left: 1.1rem;
+    border-left: 4px solid white;
+}
 
-
-/*Garante que o texto e o ícone fiquem BRANCOS por padrão. */
 .sidebar .custom-menu .p-menuitem-link .p-menuitem-text,
 .sidebar .custom-menu .p-menuitem-link .p-menuitem-icon {
     color: white !important;
-    transition: color 0.3s ease; /* Adiciona uma transição suave para a cor do texto */
+    transition: color 0.3s ease;
 }
 
-/* NOVA REGRA: Garante que o texto e o ícone fiquem PRETOS no HOVER. */
 .sidebar .custom-menu .p-menuitem-link:hover .p-menuitem-text,
 .sidebar .custom-menu .p-menuitem-link:hover .p-menuitem-icon {
     color: black !important;
