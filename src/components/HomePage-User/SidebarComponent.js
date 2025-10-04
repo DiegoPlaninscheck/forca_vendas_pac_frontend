@@ -5,12 +5,17 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import './sidebar.css';
 
-export default function SidebarFixed() {
+export default function SidebarFixed({ isAdmin = false }) {
     // Itens do grupo "Cadastro"
     const cadastroItems = [
         { label: 'Clientes', icon: 'pi pi-user', command: () => console.log('Clientes clicked') },
         { label: 'Pedidos', icon: 'pi pi-shopping-cart', command: () => console.log('Pedidos clicked') },
     ];
+
+    // Se for admin, adiciona Produtos
+    if (isAdmin) {
+        cadastroItems.push({ label: 'Produtos', icon: 'pi pi-box', command: () => console.log('Produtos clicked') });
+    }
 
     // Itens do grupo "Pedidos"
     const pedidosItems = [
@@ -51,8 +56,9 @@ export default function SidebarFixed() {
 
                 {/* Conteúdo principal da página */}
                 <div className="content">
-                    <h1>Conteúdo principal</h1>
-                    <p>Aqui vai o restante da sua aplicação.</p>
+                    <div className="logo-central">
+                        <span>RU®</span>
+                    </div>
                 </div>
             </div>
         </div>

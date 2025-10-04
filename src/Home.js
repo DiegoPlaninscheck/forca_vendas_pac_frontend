@@ -177,7 +177,7 @@ function Home() {
 
     return (
         <div className="app-container">
-            <SidebarComponent />
+            <SidebarComponent isAdmin={true}/>
             {/* <button className="logout-button" onClick={() => kc.logout()}>
                 Logout
             </button>

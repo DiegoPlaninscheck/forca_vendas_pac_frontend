@@ -22,9 +22,8 @@
 }
 
 .content {
-    padding: 2rem;
-    flex-grow: 1;
-    background-color: #f4f4f4;
+    align-items: center;
+    justify-content: center;
 }
 
 /* --- Estilos da Sidebar --- */
@@ -61,7 +60,19 @@
     align-items: center;
     padding: 1rem;
 }
-
+.logo-central{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: red;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.45rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
 .profile-logo {
     width: 80px;
     height: 80px;
@@ -122,18 +133,16 @@
 }
 
 
-/* ======================================================================== */
-/* --- REGRAS DE FORÇA TOTAL --- */
-/* ======================================================================== */
 
-/* 1. Garante que o texto e o ícone fiquem BRANCOS por padrão. */
+
+/*Garante que o texto e o ícone fiquem BRANCOS por padrão. */
 .sidebar .custom-menu .p-menuitem-link .p-menuitem-text,
 .sidebar .custom-menu .p-menuitem-link .p-menuitem-icon {
     color: white !important;
     transition: color 0.3s ease; /* Adiciona uma transição suave para a cor do texto */
 }
 
-/* 2. NOVA REGRA: Garante que o texto e o ícone fiquem PRETOS no HOVER. */
+/* NOVA REGRA: Garante que o texto e o ícone fiquem PRETOS no HOVER. */
 .sidebar .custom-menu .p-menuitem-link:hover .p-menuitem-text,
 .sidebar .custom-menu .p-menuitem-link:hover .p-menuitem-icon {
     color: black !important;
