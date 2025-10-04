@@ -1,0 +1,47 @@
+/* Menubar geral */
+.p-menubar {
+    background-color: #d32f2f !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    border-radius: 0 !important;
+}
+
+/* Centralizar os itens (botões) */
+.p-menubar-root-list {
+    margin: 0 auto !important;
+    display: flex !important;
+    gap: 0.5rem;
+}
+
+/* Estilo dos botões */
+.p-menubar .p-menuitem-link {
+    background: #e53935 !important;
+    border-radius: 6px;
+    margin: 0 4px;
+    padding: 0.6rem 1.2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: none !important;
+}
+
+/* Força o texto dos botões a ser branco */
+.p-menubar .p-menuitem-link,
+.p-menubar .p-menuitem-link span,
+.p-menubar .p-menuitem-link .p-menuitem-text {
+    color: #fff !important;
+    font-weight: 600;
+}
+
+/* Remove hover branco */
+.p-menubar .p-menuitem-link:hover {
+    background: #e53935 !important;
+    color: #fff !important;
+}
+
+/* Título branco */
+.p-menubar-start h1 {
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0;
+}
