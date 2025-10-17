@@ -14,7 +14,7 @@ export default function SidebarFixed({ isAdmin = false }) {
 
     // Se for admin, adiciona Produtos
     if (isAdmin) {
-        cadastroItems.push({ label: 'Produtos', icon: 'pi pi-box', command: () => console.log('Produtos clicked') });
+        cadastroItems.push({ label: 'Produtos', icon: 'pi pi-box', command: () => window.location.href = '/register' });
     }
 
     // Itens do grupo "Pedidos"
