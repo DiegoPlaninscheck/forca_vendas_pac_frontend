@@ -1,0 +1,70 @@
+/* Remove header padrão do PrimeReact */
+.register-modal .p-dialog-header {
+    display: none !important;
+}
+
+/* Fundo vermelho do modal */
+.register-modal .p-dialog-content {
+    background-color: #b13b3b;
+    border-radius: 6px;
+    padding: 2rem !important;
+}
+
+/* Título centralizado */
+.register-content .title {
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+/* Layout dos campos */
+.form-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+/* Campo individual */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Campo de linha inteira */
+.form-group.full-width {
+    flex-basis: 100%;
+}
+
+/* Label */
+.form-group label {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+/* Inputs */
+.input-field {
+    background-color: #cc6666 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    color: white !important;
+}
+
+/* Rodapé */
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+/* Botão salvar */
+.save-button {
+    background-color: #6dc24b !important;
+    border: none !important;
+    color: black !important;
+    font-weight: bold !important;
+    width: 140px;
+}
