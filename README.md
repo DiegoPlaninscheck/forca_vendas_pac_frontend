@@ -2,9 +2,7 @@
 
 ## 📋 Descrição
 
-Este é o front-end de uma aplicação que realiza operações de **CRUD** (_Create, Read, Update, Delete_) integradas com uma **API REST**. A aplicação utiliza **autenticação e autorização via [Keycloak](w)** para garantir segurança e controle de acesso.
-
----
+## Este é o front-end de uma aplicação que realiza operações de **CRUD** (_Create, Read, Update, Delete_) integradas com uma **API REST**. A aplicação utiliza **autenticação e autorização via [Keycloak](w)** para garantir segurança e controle de acesso.
 
 ## 🚀 Funcionalidades
 
@@ -72,13 +70,10 @@ A aplicação estará disponível no navegador em:
 **Autenticação**
 
 - O usuário realiza login via Keycloak ao acessar o sistema.
-
 - Um token JWT é obtido e armazenado para autenticar as requisições à API.
 
 **Autorização**
 
 - O front-end verifica as roles do usuário após o login.
-
 - Os botões e ações da interface são habilitados ou desabilitados com base nessas permissões.
-
 - A API também valida as roles no backend, e o front-end responde de forma coerente.

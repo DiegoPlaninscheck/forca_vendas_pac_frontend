@@ -120,16 +120,20 @@
     color: white !important;
     background-color: rgba(42, 42, 46, 0.2) !important;
     margin-bottom: 10px;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 1rem !important;
     border-radius: 6px;
-    border-left: 4px solid transparent;
+    border-left: 4px solid transparent; /* já define a borda para não "empurrar" no hover */
     transition: all 0.3s ease;
+    box-sizing: border-box !important; /* impede mudança de tamanho */
 }
 
+/* Hover sem deslocamento */
 .custom-menu .p-menuitem-link:hover {
-    background-color: white !important;
-    padding-left: 1.1rem;
-    border-left: 4px solid white;
+    background-color: rgba(255, 255, 255, 0.15) !important; /* mantém o mesmo tom claro */
+    border-left: 4px solid white !important;
+    color: white !important;
+    padding: 0.75rem 1rem !important; /* padding fixo */
+    transform: none !important;
 }
 
 .sidebar .custom-menu .p-menuitem-link .p-menuitem-text,

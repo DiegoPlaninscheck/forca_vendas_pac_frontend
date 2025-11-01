@@ -20,7 +20,13 @@ function MenuBarComponent() {
     ];
 
     const start = (
-        <h1 className="text-white font-semibold text-base">Cadastro de Produtos</h1>
+        <h1 className="text-white font-semibold text-base">
+            
+            <span className="icon-circle" onClick={() => window.location.href = '/home'}>
+                <i className="pi pi-home"></i>
+            </span>
+            <span>Cadastro de Produtos</span>
+        </h1>
     );
 
     const end = (

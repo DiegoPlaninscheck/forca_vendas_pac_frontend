@@ -32,10 +32,32 @@
     font-weight: 600;
 }
 
-/* Remove hover branco */
-.p-menubar .p-menuitem-link:hover {
+/* Fixar tamanho e layout base */
+.p-menubar .p-menuitem-link {
     background: #e53935 !important;
+    border-radius: 6px;
+    margin: 0 4px;
+    padding: 0.6rem 1.2rem !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.1s ease !important;
+    border: 2px solid transparent !important; /* evita empurrar conteúdo no hover */
+    box-sizing: border-box !important; /* mantém dimensões fixas */
+}
+
+/* Estado de hover sem deslocar o layout */
+.p-menubar .p-menuitem-link:hover {
+    background: #c62828 !important;
     color: #fff !important;
+    font-size: 1.05rem !important;
+    border: 2px solid #c62828 !important; /* mesma largura da borda base */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    transform: none !important;
+}
+
+/* Impedir variação no texto */
+.p-menubar .p-menuitem-link span,
+.p-menubar .p-menuitem-link .p-menuitem-text {
+    line-height: 1 !important;
 }
 
 /* Título branco */
@@ -44,4 +66,23 @@
     font-weight: bold;
     font-size: 1rem;
     margin: 0;
+    display: flex !important; 
+    align-items: center !important;
+}
+
+.p-menubar-start .icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;     
+    border-radius: 50%;          
+    width: 32px;                 
+    height: 32px;                
+    margin-right: 0.75rem;
+    cursor: pointer;       
+}
+
+.p-menubar-start .icon-circle .pi {
+    color: #d32f2f; 
+    font-size: 1rem; 
 }
