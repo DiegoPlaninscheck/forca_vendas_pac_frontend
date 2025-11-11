@@ -30,11 +30,13 @@ kc.init({
     if (kc.token) {
         Cookies.set('JWT_TOKEN', kc.token);
         httpClient.defaults.headers.common['Authorization'] = `Bearer ${kc.token}`;
+        // window.location.href = '/home';
     }
 
     localStorage.onTokenExpired = () => {
         console.log('Token expired');
     };
+
 }).catch(() => {
     console.error('Authentication Failed');
 });

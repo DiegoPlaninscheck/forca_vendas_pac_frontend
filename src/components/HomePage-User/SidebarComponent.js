@@ -5,6 +5,8 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import './sidebar.css';
 
+import Cookies from 'js-cookie';
+
 export default function SidebarFixed({ isAdmin = false }) {
     // Itens do grupo "Cadastro"
     const cadastroItems = [
@@ -22,12 +24,18 @@ export default function SidebarFixed({ isAdmin = false }) {
         { label: 'Aprovação de Pedidos', icon: 'pi pi-check', command: () => console.log('Aprovação clicked') },
     ];
 
+    function logout() {
+        Cookies.remove("JWT_TOKEN");
+
+        window.location.href = '/';
+    }
+
     return (
         <div className="layout-container">
             <div className="layout-body">
                 {/* Sidebar */}
                 <div className="sidebar">
-                    <div className="sidebar-header">
+                    <div className="sidebar-header" onClick={() => logout()}>
                         <i className="pi pi-arrow-left"></i>
                         <span>Sair</span>
                     </div>
