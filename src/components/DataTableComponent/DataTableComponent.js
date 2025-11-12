@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-// import { CustomerService } from './service/CustomerService';
 
 function DataTableComponent() {
     const [products, setProducts] = useState([
@@ -17,10 +16,6 @@ function DataTableComponent() {
         { ref: "9", color: "brown", size: "10" },
         { ref: "10", color: "dark blue", size: "40" }
     ]);
-
-    // useEffect(() => {
-    //     CustomerService.getCustomersMedium().then((data) => setCustomers(data));
-    // }, []);
 
     return (
         <div>
