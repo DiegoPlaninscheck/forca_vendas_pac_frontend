@@ -5,7 +5,7 @@ import { Avatar } from "primereact/avatar";
 import "./MenuBarComponent.css";
 import RegisterModal from "../RegisterModal/RegisterModal";
 
-function MenuBarComponent() {
+function MenuBarComponent(props) {
     const [showModal, setShowModal] = useState(false);
 
     const items = [

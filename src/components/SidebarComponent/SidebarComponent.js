@@ -6,15 +6,16 @@ import 'primeicons/primeicons.css';
 import './sidebar.css';
 
 import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
 
 export default function SidebarFixed({ isAdmin = false, kc }) {
     const cadastroItems = [
-        { label: 'Clientes', icon: 'pi pi-user', command: () => console.log('Clientes clicked') },
-        { label: 'Pedidos', icon: 'pi pi-shopping-cart', command: () => console.log('Pedidos clicked') },
+        { label: 'Clientes', icon: 'pi pi-user', command: () => window.location.href = '/register/client' },
+        { label: 'Pedidos', icon: 'pi pi-shopping-cart', command: () => window.location.href = '/register/order' },
     ];
 
     if (isAdmin) {
-        cadastroItems.push({ label: 'Produtos', icon: 'pi pi-box', command: () => window.location.href = '/register' });
+        cadastroItems.push({ label: 'Produtos', icon: 'pi pi-box', command: () => { window.location.href = '/register/product' } });
     }
 
     const pedidosItems = [
