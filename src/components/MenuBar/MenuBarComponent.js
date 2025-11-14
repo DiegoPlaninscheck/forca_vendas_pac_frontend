@@ -7,6 +7,7 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 
 function MenuBarComponent(props) {
     const [showModal, setShowModal] = useState(false);
+    const type = props.type;
 
     const items = [
         {
@@ -21,11 +22,13 @@ function MenuBarComponent(props) {
 
     const start = (
         <h1 className="text-white font-semibold text-base">
-            
+
             <span className="icon-circle" onClick={() => window.location.href = '/home'}>
                 <i className="pi pi-home"></i>
             </span>
-            <span>Cadastro de Produtos</span>
+            {type === "product" ?
+                <span>Cadastro de Produtos</span> :
+                type === "client" ? <span>Cadastro de Clientes</span> : <span>Cadastro de Pedidos</span>}
         </h1>
     );
 

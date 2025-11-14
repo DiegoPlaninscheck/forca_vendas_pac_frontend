@@ -6,7 +6,6 @@ import 'primeicons/primeicons.css';
 import './sidebar.css';
 
 import Cookies from 'js-cookie';
-import { Link } from 'react-router-dom';
 
 export default function SidebarFixed({ isAdmin = false, kc }) {
     const cadastroItems = [

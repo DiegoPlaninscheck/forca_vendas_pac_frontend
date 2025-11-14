@@ -1,0 +1,83 @@
+.login-container {
+    width: 100%;
+    height: 100vh;
+    background: #f3f3f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    width: 70%;
+    max-width: 900px;
+    height: 380px;
+    background: #b7373c;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    padding: 32px;
+}
+
+.login-left {
+    flex: 1;
+    background: white;
+    border-radius: 10px;
+    margin-right: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-text {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.login-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+.welcome {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 24px;
+    font-style: italic;
+}
+
+.login-right label {
+    margin-bottom: 4px;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.login-right input {
+    height: 36px;
+    border-radius: 6px;
+    border: none;
+    padding: 0 10px;
+    background: #d3d3d3;
+    margin-bottom: 16px;
+}
+
+.links {
+    margin-top: 12px;
+    font-size: 12px;
+    text-align: right;
+    font-style: italic;
+}
+
+.links a {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}

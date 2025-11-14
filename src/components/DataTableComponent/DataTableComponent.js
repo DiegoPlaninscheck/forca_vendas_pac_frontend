@@ -59,7 +59,13 @@ function DataTableComponent(props) {
                     <Column field="color" header="Color" style={{ width: '33%' }}></Column>
                     <Column field="size" header="Size" style={{ width: '33%' }}></Column>
                 </DataTable>
-            </div> : ""
+            </div> : <div>
+                <DataTable value={orders} paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
+                    <Column field="ref" header="REF" style={{ width: '33%' }}></Column>
+                    <Column field="color" header="Color" style={{ width: '33%' }}></Column>
+                    <Column field="size" header="Size" style={{ width: '33%' }}></Column>
+                </DataTable>
+            </div>
         )
     }
 
