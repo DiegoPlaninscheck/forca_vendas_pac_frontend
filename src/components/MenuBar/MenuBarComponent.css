@@ -5,11 +5,11 @@
     display: flex !important;
     align-items: center !important;
     border-radius: 0 !important;
+    justify-content: space-between !important;
 }
 
 /* Centralizar os itens (botões) */
 .p-menubar-root-list {
-    margin: 0 auto !important;
     display: flex !important;
     gap: 0.5rem;
 }

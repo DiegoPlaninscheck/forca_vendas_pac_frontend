@@ -19,7 +19,6 @@ function Login() {
                     <input type="password" />
 
                     <div className="links">
-                        <a href="#">Cadastrar novo usuário</a>
                         <a href="#">Recuperar senha</a>
                     </div>
                 </div>

@@ -15,9 +15,6 @@ function MenuBarComponent(props) {
                 setShowModal(true)
             }
         },
-        { label: "Alterar", command: () => console.log("Alterar") },
-        { label: "Visualizar", command: () => console.log("Visualizar") },
-        { label: "Excluir", command: () => console.log("Excluir") }
     ];
 
     const start = (
@@ -31,7 +28,7 @@ function MenuBarComponent(props) {
                 type === "client" ? <span>Cadastro de Clientes</span> : <span>Cadastro de Pedidos</span>}
         </h1>
     );
-
+/*
     const end = (
         <Avatar
             label="RU"
@@ -47,13 +44,13 @@ function MenuBarComponent(props) {
             }}
         />
     );
-
+*/
     return (
         <div>
             <Menubar
                 model={items}
                 start={start}
-                end={end}
+                //end={end}
                 className="bg-red-600 border-none flex justify-between items-center"
             />
             {
