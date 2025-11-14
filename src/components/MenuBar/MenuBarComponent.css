@@ -3,13 +3,14 @@
     background-color: #d32f2f !important;
     border: none !important;
     display: flex !important;
+    justify-content: space-between;
     align-items: center !important;
     border-radius: 0 !important;
 }
 
 /* Centralizar os itens (botões) */
 .p-menubar-root-list {
-    margin: 0 auto !important;
+    /* margin: 0 auto !important; */
     display: flex !important;
     gap: 0.5rem;
 }

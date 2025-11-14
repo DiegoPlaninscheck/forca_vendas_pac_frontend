@@ -51,7 +51,7 @@ function MenuBarComponent(props) {
             <Menubar
                 model={items}
                 start={start}
-                end={end}
+                // end={end}
                 className="bg-red-600 border-none flex justify-between items-center"
             />
             {
