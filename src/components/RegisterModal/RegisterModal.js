@@ -25,7 +25,8 @@ function RegisterModal(props) {
             className="register-modal"
         >
             <div className="register-content">
-                <h3 className="title">Inclusão de Produtos</h3>
+                {props.type === "product" ? <h3 className="title">Inclusão de Produtos</h3> : props.type === "client" ? <h3 className="title">Inclusão de Clientes</h3> : <h3 className="title">Inclusão de Pedidos</h3>}
+                {/* <h3 className="title">Inclusão de Produtos</h3> */}
 
                 <div className="form-grid">
                     <div className="form-group">

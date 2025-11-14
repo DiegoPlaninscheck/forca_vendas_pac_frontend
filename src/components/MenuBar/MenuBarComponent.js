@@ -14,10 +14,7 @@ function MenuBarComponent(props) {
             label: "Incluir", command: () => {
                 setShowModal(true)
             }
-        },
-        { label: "Alterar", command: () => console.log("Alterar") },
-        { label: "Visualizar", command: () => console.log("Visualizar") },
-        { label: "Excluir", command: () => console.log("Excluir") }
+        }
     ];
 
     const start = (
@@ -28,7 +25,8 @@ function MenuBarComponent(props) {
             </span>
             {type === "product" ?
                 <span>Cadastro de Produtos</span> :
-                type === "client" ? <span>Cadastro de Clientes</span> : <span>Cadastro de Pedidos</span>}
+                type === "client" ? <span>Cadastro de Clientes</span>
+                    : <span>Cadastro de Pedidos</span>}
         </h1>
     );
 
@@ -57,7 +55,7 @@ function MenuBarComponent(props) {
                 className="bg-red-600 border-none flex justify-between items-center"
             />
             {
-                showModal ? <RegisterModal visible={showModal} setVisible={setShowModal} /> : ""
+                showModal ? <RegisterModal type={type} visible={showModal} setVisible={setShowModal} /> : ""
             }
         </div>
     );
