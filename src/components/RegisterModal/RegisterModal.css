@@ -56,15 +56,19 @@
 /* Rodapé */
 .footer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-top: 2rem;
 }
 
 /* Botão salvar */
-.save-button {
+/* .save-button {
     background-color: #6dc24b !important;
     border: none !important;
     color: black !important;
     font-weight: bold !important;
     width: 140px;
+} */
+
+.cancel-button{
+    color:#fff
 }

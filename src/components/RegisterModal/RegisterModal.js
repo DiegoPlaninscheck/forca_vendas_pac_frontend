@@ -59,7 +59,12 @@ function RegisterModal(props) {
 
                 <div className="footer">
                     <Button
-                        label="SALVAR"
+                        label="CANCELAR" outlined severity="secondary"
+                        className="cancel-button"
+                        onClick={() => props.setVisible(false)}
+                    />
+                    <Button
+                        label="SALVAR" severity="success"
                         className="save-button"
                         onClick={handleSave}
                     />

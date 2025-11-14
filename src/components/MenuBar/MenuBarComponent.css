@@ -42,7 +42,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: all 0.1s ease !important;
     border: 2px solid transparent !important; /* evita empurrar conteúdo no hover */
-    box-sizing: border-box !important; /* mantém dimensões fixas */
+    box-sizing: border-box !important;
 }
 
 /* Estado de hover sem deslocar o layout */
