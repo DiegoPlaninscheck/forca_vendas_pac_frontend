@@ -1,0 +1,110 @@
+/* TelaAprovacao.css */
+body {
+    background-color: #f4f4f4; /* Um fundo neutro para a tela */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.approval-screen {
+    max-width: 100%;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. Cabeçalho Vermelho de Informações */
+.info-header {
+    background-color: #D32F2F; 
+    color: white;
+    padding: 1.0rem 1.0rem 0.6rem 1.0rem;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Ajustes nos campos de input dentro do header */
+.info-header .field label {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #FFCDD2; 
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.info-header .p-inputtext {
+    background-color: #FFCDD2;
+    border: none;
+    color: #212121;
+}
+
+.info-header .p-inputtext:disabled {
+    opacity: 1; /* Garante que a cor de fundo apareça */
+}
+
+
+/* Título branco */
+
+.header-actions .action-button {
+    font-weight: bold;
+}
+
+h1.p-menubar-start {
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 1.3rem; /* Fonte do título aumentada */
+    margin: 0;
+    display: flex !important; 
+    align-items: center !important;
+    gap: 1rem; /* <<< ADICIONADO: Espaço entre o ícone e o texto */
+}
+
+/* * 2. ESTILO DO CÍRCULO DO ÍCONE 
+ * (Movido 'width', 'height', 'background' para o <span>) 
+ */
+.icon-circle {
+    background-color: #eeeeee;
+    width: 10rem;  
+    height: 10rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.icon-circle .pi-home {
+    color: #212121;
+    font-size: 3rem; /* <<< AUMENTADO (controla o tamanho do ícone) */
+}
+
+
+/* Estilo para botões 'Cancelar' e 'Negado' */
+.header-actions .p-button-secondary {
+    background-color: #FFCDD2;
+    border-color: #FFCDD2;
+    color: #D32F2F;
+}
+.header-actions .p-button-secondary:hover {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #D32F2F;
+}
+
+/* 4. Estilização da Tabela (para combinar com o header) */
+.table-container .p-datatable-thead > tr > th {
+    background-color: #E53935; /* Vermelho mais claro para o header da tabela */
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+}
+
+/* Linhas zebradas */
+.table-container .p-datatable-tbody > tr.p-datatable-striped-row {
+  background-color: #f9f9f9;
+}
+
+.table-container .p-datatable-tbody > tr > td {
+  border: none; 
+  border-bottom: 1px solid #eeeeee;
+}

@@ -28,15 +28,21 @@ function DataTableComponent(props) {
         { id: "3", cliente: "yellow", cnpj: "30" , endereco: "Travessa E, 202", qtdeprodutos: "15" , editar: "edit" , excluir: "delete"},
     ]);
 
+    const [approval, setApproval] = useState([
+        { Referência: "1", COR: "red", TAMANHO: "10" , Quantidade: "50", Aprovar: "approve" , Negar: "deny"},
+        { Referência: "2", COR: "blue", TAMANHO: "20" , Quantidade: "30", Aprovar: "approve" , Negar: "deny"},
+        { Referência: "3", COR: "yellow", TAMANHO: "30" , Quantidade: "20", Aprovar: "approve" , Negar: "deny"},
+    ]);
+
     function Table(type) {
         type = type.type;
 
         return (
             type === "product" ? <div>
                 <DataTable value={products} paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
-                    <Column field="ref" header="REF" style={{ width: '33%' }}></Column>
-                    <Column field="color" header="Color" style={{ width: '33%' }}></Column>
-                    <Column field="size" header="Size" style={{ width: '33%' }}></Column>
+                    <Column field="ref" header="REF" style={{ width: '25%' }}></Column>
+                    <Column field="color" header="Color" style={{ width: '25%' }}></Column>
+                    <Column field="size" header="Size" style={{ width: '25%' }}></Column>
                 </DataTable>
             </div> : type === "client" ? <div>
                 <DataTable value={clients} paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
@@ -47,7 +53,7 @@ function DataTableComponent(props) {
                     <Column field="endereco" header="Endereço" style={{ width: '20%' }}></Column>
                     <Column field="observacoes" header="Observações" style={{ width: '20%' }}></Column>
                 </DataTable>
-            </div> : <div>
+            </div> : type === "orders" ? <div>
                 <DataTable value={orders} paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
                     <Column field="id" header="ID" style={{ width: '10%' }}></Column>
                     <Column field="cliente" header="Cliente" style={{ width: '25%' }}></Column>
@@ -56,6 +62,15 @@ function DataTableComponent(props) {
                     <Column field="qtdeprodutos" header="QTDE Produtos" style={{ width: '10%' }}></Column>
                     <Column field="editar" header=" " style={{ width: '2%' }}></Column>
                     <Column field="excluir" header="" style={{ width: '2%' }}></Column>
+                </DataTable>
+            </div> : <div>
+                <DataTable value={approval} paginator rows={5} rowsPerPageOptions={[5,10,25,50]} tableStyle={{minWidth: '50rem'}}>
+                    <Column field="Referência" header="Referência" style={{width: '25%'}}></Column>
+                    <Column field="COR" header="COR" style={{width: '15%'}}></Column>
+                    <Column field="TAMANHO" header="TAMANHO" style={{width: '25%'}}></Column>
+                    <Column field="Quantidade" header="Quantidade" style={{width: '10%'}}></Column>
+                    <Column field="Aprovar" header="Aprovar" style={{width: '10%'}}></Column>
+                    <Column field="Negar" header="Negar" style={{width: '10%'}}></Column>
                 </DataTable>
             </div>
         )

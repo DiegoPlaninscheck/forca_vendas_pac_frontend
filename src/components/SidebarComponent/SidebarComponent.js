@@ -18,7 +18,7 @@ export default function SidebarFixed({ isAdmin = false, kc }) {
     }
 
     const pedidosItems = [
-        { label: 'Aprovação de Pedidos', icon: 'pi pi-check', command: () => console.log('Aprovação clicked') },
+        { label: 'Aprovação de Pedidos', icon: 'pi pi-check', command: () => {window.location.href = '/approval'} },
     ];
 
     const logout = () => {
