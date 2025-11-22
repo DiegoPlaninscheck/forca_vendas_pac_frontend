@@ -1,3 +1,4 @@
+import { Button } from "primereact/button";
 import "./Login.css";
 
 function Login() {
@@ -17,6 +18,12 @@ function Login() {
 
                     <label>Senha</label>
                     <input type="password" />
+                    
+                    <Button
+                        label="Login" severity="login"
+                        className="login-button"
+                        onClick={() => window.location.href = '/home'}
+                    />
 
                     <div className="links">
                         <a href="#">Recuperar senha</a>

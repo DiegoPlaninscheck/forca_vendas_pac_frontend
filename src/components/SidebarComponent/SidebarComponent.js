@@ -25,6 +25,7 @@ export default function SidebarFixed({ isAdmin = false, kc }) {
         Cookies.remove("JWT_TOKEN");
         if (kc) {
             kc.logout({ redirectUri: "http://localhost:3000/" });
+            // window.location.href = '/login';
         } else {
             console.warn('Keycloak não encontrado, redirecionando manualmente...');
             window.location.href = '/login';

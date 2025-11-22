@@ -41,8 +41,8 @@ function DataTableComponent(props) {
             type === "product" ? <div>
                 <DataTable value={products} paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
                     <Column field="ref" header="REF" style={{ width: '25%' }}></Column>
-                    <Column field="color" header="Color" style={{ width: '25%' }}></Column>
-                    <Column field="size" header="Size" style={{ width: '25%' }}></Column>
+                    <Column field="color" header="Cor" style={{ width: '25%' }}></Column>
+                    <Column field="size" header="Tamanho" style={{ width: '25%' }}></Column>
                 </DataTable>
             </div> : type === "client" ? <div>
                 <DataTable value={clients} paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
@@ -59,7 +59,7 @@ function DataTableComponent(props) {
                     <Column field="cliente" header="Cliente" style={{ width: '25%' }}></Column>
                     <Column field="cnpj" header="CNPJ" style={{ width: '25%' }}></Column>
                     <Column field="endereco" header="Endereço" style={{ width: '25%' }}></Column>
-                    <Column field="qtdeprodutos" header="QTDE Produtos" style={{ width: '10%' }}></Column>
+                    <Column field="qtdeprodutos" header="Quantidade de Produtos" style={{ width: '10%' }}></Column>
                     <Column field="editar" header=" " style={{ width: '2%' }}></Column>
                     <Column field="excluir" header="" style={{ width: '2%' }}></Column>
                 </DataTable>

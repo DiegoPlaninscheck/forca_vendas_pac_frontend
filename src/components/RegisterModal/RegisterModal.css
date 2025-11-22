@@ -1,6 +1,8 @@
 /* Remove header padrão do PrimeReact */
 .register-modal .p-dialog-header {
     display: none !important;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Fundo vermelho do modal */
@@ -10,14 +12,6 @@
     padding: 2rem !important;
 }
 
-/* Título centralizado */
-.register-content .title {
-    text-align: center;
-    color: #fff;
-    font-weight: 600;
-    font-style: italic;
-    margin-bottom: 2rem;
-}
 
 /* Layout dos campos */
 .form-grid {
@@ -58,6 +52,31 @@
     display: flex;
     justify-content: space-between;
     margin-top: 2rem;
+}
+
+.title {
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    font-style: italic;
+    margin: 0; /* ZERE as margens aqui para o flexbox funcionar */
+}
+
+.title-box {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border: 0.2rem solid #fff;
+    border-radius: 16px;
+    
+    /* O segredo do alinhamento interno: padding igual em cima e embaixo */
+    padding: 0.8rem 2rem; 
+    
+    /* O segredo do alinhamento externo: 
+       0 em cima, auto nos lados (centraliza a caixa), 2rem embaixo (afasta o form) */
+    margin: 0 auto 2rem auto; 
 }
 
 /* Botão salvar */

@@ -81,3 +81,21 @@
 .links a:hover {
     text-decoration: underline;
 }
+
+.login-button {
+    background: linear-gradient(45deg, #b13b3b, #e05a5a) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 700;
+    border-radius: 30px; /* Formato de pílula */
+    width: 100%;
+    padding: 10px 0;
+    transition: filter 0.3s;
+}
+
+.login-button:hover {
+    filter: brightness(1.1); /* Fica mais brilhante ao passar o mouse */
+    cursor: pointer;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(177, 59, 59, 0.4);
+}

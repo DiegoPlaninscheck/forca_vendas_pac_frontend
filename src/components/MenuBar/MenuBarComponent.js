@@ -12,7 +12,7 @@ function MenuBarComponent(props) {
 
     const items = [
         {   
-            label: "Incluir", command: () => {
+            label: "Cadastrar", command: () => {
                 setShowModal(true)
             }
         },
