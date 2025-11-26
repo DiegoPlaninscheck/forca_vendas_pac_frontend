@@ -53,7 +53,7 @@ function DataTableComponent(props) {
                     <Column field="endereco" header="Endereço" style={{ width: '20%' }}></Column>
                     <Column field="observacoes" header="Observações" style={{ width: '20%' }}></Column>
                 </DataTable>
-            </div> : type === "orders" ? <div>
+            </div> : type === "order" ? <div>
                 <DataTable value={orders} paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} tableStyle={{ minWidth: '50rem' }}>
                     <Column field="id" header="ID" style={{ width: '10%' }}></Column>
                     <Column field="cliente" header="Cliente" style={{ width: '25%' }}></Column>
