@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import "./RegisterModal.css";
+
+// REMOVIDA A IMPORTAÇÃO QUE CAUSAVA O ERRO DE DUPLICIDADE
 
 function RegisterModal(props) {
     const [observacoes, setObs] = useState("");
@@ -19,6 +21,37 @@ function RegisterModal(props) {
     //Pedidos
     const [cliente, setCliente] = useState("");
     const [QtdProd, setQtd] = useState("");
+
+    // --- EFEITO: CARREGAR DADOS AO EDITAR ---
+    useEffect(() => {
+        if (props.selectedData && props.visible) {
+            const data = props.selectedData;
+            
+            if (props.type === "product") {
+                setRef(data.ref || "");
+                setCor(data.color || data.cor || ""); 
+                setTamanho(data.size || data.tamanho || "");
+                setObs(data.observacoes || "");
+            } else if (props.type === "client") {
+                setCNPJ(data.cnpj || "");
+                setRazao(data.razaosocial || "");
+                setNome(data.nomefantasia || "");
+                setInscricao(data.inscricaoestadual || "");
+                setENDERECO(data.endereco || "");
+                setObs(data.observacoes || "");
+            } else if (props.type === "order") {
+                setCliente(data.cliente || "");
+                setQtd(data.qtdeprodutos || "");
+                setCNPJ(data.cnpj || "");
+                setENDERECO(data.endereco || "");
+            }
+        } else if (!props.visible) {
+            // Limpar campos quando fechar
+            setRef(""); setCor(""); setTamanho(""); setObs("");
+            setCNPJ(""); setRazao(""); setNome(""); setInscricao(""); setENDERECO("");
+            setCliente(""); setQtd("");
+        }
+    }, [props.selectedData, props.visible, props.type]);
 
     const handleSave = () => {
         let dadosParaSalvar = {};
@@ -48,7 +81,6 @@ function RegisterModal(props) {
             };
         }
         console.log("Salvando todos os dados cadastrados", dadosParaSalvar);
-
         props.setVisible(false);
     };
 
@@ -60,51 +92,31 @@ function RegisterModal(props) {
             style={{ width: "40vw" }}
             modal
             className="register-modal"
+            header={
+                props.type === "product" ? "Cadastro de Produtos" :
+                props.type === "client" ? "Cadastro de Clientes":
+                "Cadastro de Pedidos"
+            }
         >
-            <div className="title-box">
-                <h3 className="title">
-                    {props.type === "product" ? "Cadastro de Produtos" :
-                    props.type === "client" ? "Cadastro de Clientes":
-                    "Cadastro de Pedidos"}
-                </h3>
-            </div>
             <div className="register-content">
                 
                 {props.type === "product" ? ( 
-                
                 <div className="form-grid">
                     <div className="form-group">
                         <label>REF</label>
-                        <InputText
-                            value={ref}
-                            onChange={(e) => setRef(e.target.value)}
-                            className="input-field"
-                        />
+                        <InputText value={ref} onChange={(e) => setRef(e.target.value)} className="input-field"/>
                     </div>
-
                     <div className="form-group">
                         <label>Cor</label>
-                        <InputText
-                            value={cor}
-                            onChange={(e) => setCor(e.target.value)}
-                            className="input-field"
-                        />
+                        <InputText value={cor} onChange={(e) => setCor(e.target.value)} className="input-field"/>
                     </div>
                     <div className="form-group">
                         <label>Tamanho</label>
-                        <InputText
-                            value={tamanho}
-                            onChange={(e) => setTamanho(e.target.value)}
-                            className="input-field"
-                        />
+                        <InputText value={tamanho} onChange={(e) => setTamanho(e.target.value)} className="input-field"/>
                     </div>
                     <div className="form-group full-width">
                         <label>Observações</label>
-                        <InputText
-                            value={observacoes}
-                            onChange={(e) => setObs(e.target.value)}
-                            className="input-field"
-                        />
+                        <InputText value={observacoes} onChange={(e) => setObs(e.target.value)} className="input-field"/>
                     </div>
                 </div>
 
@@ -112,91 +124,47 @@ function RegisterModal(props) {
                 <div className="form-grid">
                     <div className="form-group">
                         <label>CNPJ</label>
-                        <InputText
-                            value={CNPJ}
-                            onChange={(e) => setCNPJ(e.target.value)}
-                            className="input-field"
-                        />
+                        <InputText value={CNPJ} onChange={(e) => setCNPJ(e.target.value)} className="input-field"/>
                     </div>
                     <div className="form-group">
                         <label>Razão Social</label>
-                        <InputText
-                            value={razaoSocial}
-                            onChange={(e) => setRazao(e.target.value)}
-                            className="input-field"
-                        />
+                        <InputText value={razaoSocial} onChange={(e) => setRazao(e.target.value)} className="input-field"/>
                     </div>
                     <div className="form-group">
                         <label>Nome Fantasia</label>
-                        <InputText
-                            value={nomeFantasia}
-                            onChange={(e) => setNome(e.target.value)}
-                            className="input-field"
-                        />
+                        <InputText value={nomeFantasia} onChange={(e) => setNome(e.target.value)} className="input-field"/>
                     </div>
                     <div className="form-group">
-                        <label>Inscriçã Estadual</label>
-                        <InputText
-                            value={inscricaoEstadual}
-                            onChange={(e) => setInscricao(e.target.value)}
-                            className="input-field"
-                        />
+                        <label>Inscrição Estadual</label>
+                        <InputText value={inscricaoEstadual} onChange={(e) => setInscricao(e.target.value)} className="input-field"/>
                     </div>
                     <div className="form-group">
                         <label>Endereço</label>
-                        <InputText
-                            value={ENDERECO}
-                            onChange={(e) => setENDERECO(e.target.value)}
-                            className="input-field"
-                        />
+                        <InputText value={ENDERECO} onChange={(e) => setENDERECO(e.target.value)} className="input-field"/>
                     </div>
                     <div className="form-group full-width">
                         <label>Observações</label>
-                        <InputText
-                            value={observacoes}
-                            onChange={(e) => setObs(e.target.value)}
-                            className="input-field"
-                        />
+                        <InputText value={observacoes} onChange={(e) => setObs(e.target.value)} className="input-field"/>
                     </div>
                 </div>
                 ) : (
                 <div className="form-grid">
                     <div className="form-group">
-                        <label>Referência</label>
-                        <InputText
-                            value = {ref}
-                            onChange={(e) => setRef(e.target.value)}                        
-                            className="input-field"
-                       />
+                        <label>Cliente</label>
+                        <InputText value={cliente} onChange={(e) => setCliente(e.target.value)} className="input-field"/>
                     </div>
                     <div className="form-group">
-                        <label>Cor</label>
-                        <InputText
-                            value={cor}
-                            onChange={(e) => setCor(e.target.value)}
-                            className="input-field"
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Tamanho</label>
-                        <InputText
-                            value={tamanho}
-                            onChange={(e) => setTamanho(e.target.value)}
-                            className="input-field"
-                        />
+                        <label>Endereço</label>
+                        <InputText value={ENDERECO} onChange={(e) => setENDERECO(e.target.value)} className="input-field"/>
                     </div>
                     <div className="form-group">
                         <label>Quantidade</label>
-                        <InputText
-                            value={QtdProd}
-                            onChange={(e) => setQtd(e.target.value)}
-                            className="input-field"
-                        />
+                        <InputText value={QtdProd} onChange={(e) => setQtd(e.target.value)} className="input-field"/>
                     </div>
                 </div>
                 )}
             
-                <div className="footer">
+                <div className="footer" style={{marginTop: "20px", display: "flex", justifyContent: "flex-end", gap: "10px"}}>
                     <Button
                         label="CANCELAR" outlined severity="secondary"
                         className="cancel-button"
