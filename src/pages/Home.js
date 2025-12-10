@@ -42,20 +42,20 @@ function Home() {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const loadProducts = () => {
-        const token = Cookies.get('JWT_TOKEN');
-        httpClient.get('http://localhost:8081/products', {
-            headers: { Authorization: `Bearer ${token}` }
-        }).then((res) => {
-            setProducts(res.data);
-        }).finally(() => {
-            setLoading(false);
-        });
-    };
+    // const loadProducts = () => {
+    //     const token = Cookies.get('JWT_TOKEN');
+    //     httpClient.get('http://localhost:8081/products', {
+    //         headers: { Authorization: `Bearer ${token}` }
+    //     }).then((res) => {
+    //         setProducts(res.data);
+    //     }).finally(() => {
+    //         setLoading(false);
+    //     });
+    // };
 
-    useEffect(() => {
-        loadProducts();
-    }, []);
+    // useEffect(() => {
+    //     loadProducts();
+    // }, []);
 
     return (
         <div className="app-container">
