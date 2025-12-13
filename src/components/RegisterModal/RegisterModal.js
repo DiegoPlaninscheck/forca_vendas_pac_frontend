@@ -4,84 +4,100 @@ import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import "./RegisterModal.css";
 
-// REMOVIDA A IMPORTAÇÃO QUE CAUSAVA O ERRO DE DUPLICIDADE
-
 function RegisterModal(props) {
     const [observacoes, setObs] = useState("");
+    
+    // Cliente
     const [CNPJ, setCNPJ ] = useState("");
-    const [ENDERECO, setENDERECO ] = useState("");
-    //Produtos
-    const [ref, setRef] = useState("");
-    const [cor, setCor] = useState("");
-    const [tamanho, setTamanho] = useState("");
-    //Clientes
     const [razaoSocial, setRazao] = useState("");
     const [nomeFantasia, setNome] = useState("");
     const [inscricaoEstadual, setInscricao] = useState("");
-    //Pedidos
+    const [ENDERECO, setENDERECO ] = useState("");
+    
+    // Produtos
+    const [ref, setRef] = useState("");
+    const [cor, setCor] = useState("");
+    const [tamanho, setTamanho] = useState("");
+    
+    // Pedidos
     const [cliente, setCliente] = useState("");
     const [QtdProd, setQtd] = useState("");
 
-    // --- EFEITO: CARREGAR DADOS AO EDITAR ---
+    // --- EFEITO: CARREGAR DADOS ---
     useEffect(() => {
-        if (props.selectedData && props.visible) {
-            const data = props.selectedData;
-            
-            if (props.type === "product") {
-                setRef(data.ref || "");
-                setCor(data.color || data.cor || ""); 
-                setTamanho(data.size || data.tamanho || "");
-                setObs(data.observacoes || "");
-            } else if (props.type === "client") {
-                setCNPJ(data.cnpj || "");
-                setRazao(data.razaosocial || "");
-                setNome(data.nomefantasia || "");
-                setInscricao(data.inscricaoestadual || "");
-                setENDERECO(data.endereco || "");
-                setObs(data.observacoes || "");
-            } else if (props.type === "order") {
-                setCliente(data.cliente || "");
-                setQtd(data.qtdeprodutos || "");
-                setCNPJ(data.cnpj || "");
-                setENDERECO(data.endereco || "");
+        if (props.visible) {
+            if (props.selectedData && !props.isNewRecord) {
+                // EDIÇÃO: Carregar dados existentes
+                const data = props.selectedData;
+                
+                if (props.type === "product") {
+                    setRef(data.ref || "");
+                    setCor(data.color || data.cor || ""); 
+                    setTamanho(data.size || data.tamanho || "");
+                    setObs(data.observacoes || "");
+                } else if (props.type === "client") {
+                    setCNPJ(data.cnpj || "");
+                    setRazao(data.razaosocial || "");
+                    setNome(data.nomefantasia || "");
+                    setInscricao(data.inscricaoestadual || "");
+                    setENDERECO(data.endereco || "");
+                    setObs(data.observacoes || "");
+                } else if (props.type === "order") {
+                    setCliente(data.cliente || "");
+                    setQtd(data.qtdeprodutos || "");
+                    setCNPJ(data.cnpj || "");
+                    setENDERECO(data.endereco || "");
+                }
+            } else {
+                // NOVO REGISTRO: Limpar todos os campos
+                setRef(""); setCor(""); setTamanho(""); setObs("");
+                setCNPJ(""); setRazao(""); setNome(""); setInscricao(""); setENDERECO("");
+                setCliente(""); setQtd("");
             }
         } else if (!props.visible) {
-            // Limpar campos quando fechar
+            // Limpar tudo ao fechar
             setRef(""); setCor(""); setTamanho(""); setObs("");
             setCNPJ(""); setRazao(""); setNome(""); setInscricao(""); setENDERECO("");
             setCliente(""); setQtd("");
         }
-    }, [props.selectedData, props.visible, props.type]);
+    }, [props.selectedData, props.visible, props.type, props.isNewRecord]);
 
     const handleSave = () => {
         let dadosParaSalvar = {};
 
+        // AQUI ESTÁ O SEGREDO: Montar o objeto com as chaves que a Tabela espera
         if(props.type === "product"){
             dadosParaSalvar = {
-                tipo: "Produto",
                 ref: ref,
-                cor: cor,
-                tamanho: tamanho,
+                color: cor,    // Tabela espera "color"
+                size: tamanho, // Tabela espera "size"
                 observacoes: observacoes
             };
-        }else if(props.type === "client") {
+        } else if(props.type === "client") {
             dadosParaSalvar = {
-                tipo:"Cliente",
                 cnpj: CNPJ,
-                razaoSocial: razaoSocial,
-                nomeFantasia: nomeFantasia,
+                razaosocial: razaoSocial, // Tabela espera tudo minúsculo conforme seu state original
+                nomefantasia: nomeFantasia,
+                inscricaoestadual: inscricaoEstadual,
                 endereco: ENDERECO,
                 observacoes: observacoes
             };
-        }else{
+        } else {
+            // Pedido
             dadosParaSalvar = {
-                tipo:"Pedido",
                 cliente: cliente,
-                Qtd: QtdProd
+                qtdeprodutos: QtdProd,
+                cnpj: CNPJ, // Caso seja editável no pedido
+                endereco: ENDERECO
             };
         }
-        console.log("Salvando todos os dados cadastrados", dadosParaSalvar);
-        props.setVisible(false);
+        
+        console.log("Enviando dados salvos:", dadosParaSalvar);
+        
+        // Chama a função do pai para atualizar o estado
+        if (props.onSave) {
+            props.onSave(dadosParaSalvar);
+        }
     };
 
     return (
@@ -93,9 +109,15 @@ function RegisterModal(props) {
             modal
             className="register-modal"
             header={
-                props.type === "product" ? "Cadastro de Produtos" :
-                props.type === "client" ? "Cadastro de Clientes":
-                "Cadastro de Pedidos"
+                props.isNewRecord ? (
+                    props.type === "product" ? "Novo Produto" :
+                    props.type === "client" ? "Novo Cliente":
+                    "Novo Pedido"
+                ) : (
+                    props.type === "product" ? "Editar Produto" :
+                    props.type === "client" ? "Editar Cliente":
+                    "Editar Pedido"
+                )
             }
         >
             <div className="register-content">
@@ -104,7 +126,8 @@ function RegisterModal(props) {
                 <div className="form-grid">
                     <div className="form-group">
                         <label>REF</label>
-                        <InputText value={ref} onChange={(e) => setRef(e.target.value)} className="input-field"/>
+                        {/* REF é auto-gerado para novos produtos */}
+                        <InputText value={ref} onChange={(e) => setRef(e.target.value)} className="input-field" disabled={props.isNewRecord}/>
                     </div>
                     <div className="form-group">
                         <label>Cor</label>
@@ -124,7 +147,7 @@ function RegisterModal(props) {
                 <div className="form-grid">
                     <div className="form-group">
                         <label>CNPJ</label>
-                        <InputText value={CNPJ} onChange={(e) => setCNPJ(e.target.value)} className="input-field"/>
+                        <InputText value={CNPJ} onChange={(e) => setCNPJ(e.target.value)} className="input-field" disabled={props.isNewRecord}/>
                     </div>
                     <div className="form-group">
                         <label>Razão Social</label>
@@ -167,12 +190,10 @@ function RegisterModal(props) {
                 <div className="footer" style={{marginTop: "20px", display: "flex", justifyContent: "flex-end", gap: "10px"}}>
                     <Button
                         label="CANCELAR" outlined severity="secondary"
-                        className="cancel-button"
                         onClick={() => props.setVisible(false)}
                     />
                     <Button
                         label="SALVAR" severity="success"
-                        className="save-button"
                         onClick={handleSave}
                     />
                 </div>
